@@ -6,24 +6,64 @@
 {% block body %}
     <div class="home-container">
         <div class="header">
-            <h1>Bienvenue sur OnlyWeed</h1>
-            <p>Votre plateforme favorite pour explorer, partager et s'abonner à des contenus exclusifs !</p>
+            <img class="logo" src="{{ asset('static/Logo/Logo.png') }}">
+            <h1><span>Only</span>Weed</h1>
         </div>
 
         <div class="featured-content">
             <h2>Contenu à la une</h2>
             <div class="content-grid">
-                <div class="content-item">
-                    <img src="path_to_image.jpg" alt="Image content">
-                    <h3>Titre du contenu</h3>
+                <div class="post">
+                    <div>
+                        <div class="post-header">
+                            <img src="{{ asset('static/Cherif.png') }}">
+                            <p>Cherif kamel</p>
+                        </div>
+                        <div class="photo">
+                            <img src="{{ asset('static/Background/boze.png') }}">
+                        </div>
+                        <div class="post-footer">
+                            <div class="top">
+                                <div class="button-interaction">
+                                    <img src="{{ asset('static/icons/Like.svg') }}">
+                                    <img src="{{ asset('static/icons/Comm.svg') }}">
+                                </div>
+                                <div class="buy-buttons">
+                                    <div class="consutler">Consulter la page</div>
+                                    <div class="panier">Ajouter au panier</div>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia eius eligendi vitae odit veritatis, possimus esse est hic accusamus tempora amet illo ratione autem blanditiis a iusto ullam temporibus dolore!</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="content-item">
-                    <img src="path_to_image.jpg" alt="Image content">
-                    <h3>Titre du contenu</h3>
-                </div>
-                <div class="content-item">
-                    <img src="path_to_image.jpg" alt="Image content">
-                    <h3>Titre du contenu</h3>
+                <div class="post">
+                    <div>
+                        <div class="post-header">
+                            <img src="{{ asset('static/Cherif.png') }}">
+                            <p>Cherif kamel</p>
+                        </div>
+                        <div class="photo">
+                            <img src="{{ asset('static/Background/boze2.png') }}">
+                        </div>
+                        <div class="post-footer">
+                            <div class="top">
+                                <div class="button-interaction">
+                                    <img src="{{ asset('static/icons/Like.svg') }}">
+                                    <img src="{{ asset('static/icons/Comm.svg') }}">
+                                </div>
+                                <div class="buy-buttons">
+                                    <div class="consutler">Consulter la page</div>
+                                    <div class="panier">Ajouter au panier</div>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia eius eligendi vitae odit veritatis, possimus esse est hic accusamus tempora amet illo ratione autem blanditiis a iusto ullam temporibus dolore!</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -37,28 +77,131 @@
         .home-container {
             font-family: 'Arial', sans-serif;
             padding: 20px;
-            background-color: #f5f5f5;
         }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+        }
+
         .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
             text-align: center;
-            margin-bottom: 40px;
+            
         }
         .header h1 {
-            color: #4CAF50;
+            color: #319163;
+            font-size: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            align-self: center;
         }
+
+        .header span {
+            opacity: 65%;
+        }
+
         .featured-content {
+
             margin-bottom: 40px;
         }
         .featured-content h2 {
             text-align: center;
             margin-bottom: 20px;
-            color: #2e7d32;
+            color: #319163;
         }
+
         .content-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            width: 650px;
+            justify-self: center;
+            border: solid;
+            border-color: #ECECEC;
+            background-color: #ECECEC;
+        }
+
+        .post {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+
+        .post-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 12px 27px 12px 27px;
+            gap: 10px;
+        }
+
+        .post-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+        }
+
+        .photo img{
+            width: 650px;
+            height: 730px;
+        }
+
+        .top {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px 15px 25px;
+        }
+
+        .button-interaction {
+            display: flex;
+            width: 32px;
+            height: 32px;
             gap: 20px;
         }
+
+        .buy-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .buy-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .consutler {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 172px;
+            height: 41px;
+            border: solid;
+            border-color: #319163;
+            border-radius: 10px;
+            color: #319163;
+            background-color: transparent;
+        }
+
+        .panier {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 172px;
+            height: 43px;
+            border-radius: 10px;
+            color: #FFFFFF;
+            background-color: #319163;
+        }
+
+        .bottom {
+            padding: 0 22px 22px 22px
+        }
+
         .content-item {
             text-align: center;
         }
