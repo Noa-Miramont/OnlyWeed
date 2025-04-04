@@ -4,80 +4,196 @@
 
 {% block body %}
     <style>
-        .register-container {
-            max-width: 420px;
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 12px;
-            background: #ffffff;
-            box-shadow: 0 0 20px rgba(34, 139, 34, 0.2);
+
+        @font-face {
+        font-family: 'passion one';
+        src: url('../static/fonts/PassionOne.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+}
+
+        body {
+            display: flex;
+            height: 100vh;
             font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        .register-container h2 {
+        .Main {
+            display: flex;
+            flex: row;
+            justify-content: center;
+            align-item: center;
+            width: 100vw;
+        }
+
+        .left-section {
+            background-image: url({{ asset('static/Background/Weed_pattern.png') }});
+            background-color: #319163;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
             text-align: center;
+            padding: 50px;
+            width: 50vw;
+        }
+
+        .logo_part {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            width: 75px;
+            height: 75px;
+        }
+
+        .Title {
+            font-size: 50px;
+            font-family: 'passion one';
+        }
+
+        span {
+            opacity: 60%;
+        }
+
+        .Cloud {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+        }
+
+        img {
+            margin: 0;
+        }
+
+        .left-section img {
+            width: 80px;
             margin-bottom: 20px;
-            color: #2e7d32;
         }
 
-        .form-label {
-            color: #2e7d32;
-            font-weight: bold;
+        .right-section {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
         }
 
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 2px solid #2e7d32;
-            border-radius: 6px;
+        input {
+            width: 300px;
+            height: 50px;
+            background-color: transparent;
+            border: solid;
+            border-color: #606060;
+            padding-left: 15px
         }
 
-        .btn-register {
-            width: 100%;
-            padding: 12px;
-            background-color: #2e7d32;
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        li {
+            padding-bottom: 15px;
+        }
+
+        .Submit-Button {
+            width: 300px;
+            height: 60px;
+            background-color: #319163;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .right-section h2 {
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .Policy {
+            width: 50%;
+            text-align: center
+        }
+
+        .btn-custom {
+            width: 50%;
+            padding: 20px;
             border: none;
-            color: #fff;
+            color: white;
             font-weight: bold;
-            border-radius: 6px;
-            transition: background-color 0.3s ease;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
         }
 
-        .btn-register:hover {
-            background-color: #1b5e20;
-        }
+        .btn-blue { background-color: #0095ff; }
+        .btn-red { background-color: #ff3b3b; }
+        .btn-brown { background-color: #8b5a2b; }
 
-        .text-center {
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .text-center a {
-            color: #2e7d32;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .text-center a:hover {
-            text-decoration: underline;
+        .btn-custom:hover {
+            opacity: 0.8;
         }
     </style>
 
-    <div class="register-container">
-        <h2>Créer un compte</h2>
+    <div class="Main">
 
-        {{ form_start(registrationForm) }}
-            {{ form_row(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
-            {{ form_row(registrationForm.plainPassword, {
-                'label': 'Mot de passe',
-                'attr': {'class': 'form-control'}
-            }) }}
-            <button type="submit" class="btn-register">S'inscrire</button>
-        {{ form_end(registrationForm) }}
+        <div class="left-section">
+            <div class="logo_part">
+                <img class="logo" src="{{ asset('static/Logo/Logo.png') }}">
+                <h1 class="Title"><span class="Only">Only</span>Weeds</h1>
+            </div>
 
-        <div class="text-center">
-            <p>Déjà un compte ? <a href="{{ path('app_login') }}">Se connecter</a></p>
+            <div class="cloud-part">
+                <p>Log in to start your Bud-Tastick shop.</p>
+            </div>
+        </div>
+        
+        <div class="right-section">
+            <h2>Log-In</h2>
+            <form>
+                <ul>
+                    <li>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            placeholder="Email"
+                            required
+                        />
+                    </li>
+
+                    <li>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            placeholder="Password"
+                            required
+                        />
+                    </li>
+
+                    <input class="Submit-Button" type="submit" value="Sign in" />
+                </ul>
+            </form>
+            <p class="Policy">By logging in and using OnlyWeed, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+            <p>Forgot Password - <a href="{{ path('app_register') }}">Create account</a></p>
+            
+            <button class="btn-custom btn-blue">Dickhead digital print</button>
+            <button class="btn-custom btn-red">Red eye check test</button>
+            <button class="btn-custom btn-brown">RAW test</button>
+
+            <div class="text-center">
+                <p>Déjà un compte ? <a href="{{ path('app_login') }}">Se connecter</a></p>
+            </div>
         </div>
     </div>
+
 {% endblock %}
