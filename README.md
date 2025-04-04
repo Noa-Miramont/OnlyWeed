@@ -1,19 +1,18 @@
-🌿 OnlyWeed - Marketplace Sécurisée pour Produits Artistique
+#🌿 OnlyWeed - Marketplace Sécurisée pour Produits Artistique
 
-🛠 Technologies
-Frontend
+## 🛠 Technologies
+
+### Frontend
 twig
 
-Backend
+### Backend
 PHP 8+
 Symfony
 MySQL
 Apache
 
-📁 Structure du Projet
-php
-Copier
-Modifier
+## 📁 Structure du Projet
+```bash
 ├── assets/                       # Fichiers front-end (CSS, JS, images)
 ├── bin/                          # Scripts exécutables Symfony
 ├── config/                       # Configuration de l’application
@@ -39,49 +38,40 @@ Modifier
 ├── phpunit.xml.dist              # Configuration de PHPUnit pour les tests
 │
 └── README.md                     # Documentation du projet
-└── symfony.lock  
-⚙️ Installation
-1. Cloner le projet
-sh
-Copier
-Modifier
+└── symfony.lock
+```
+
+## ⚙️ Installation
+### 1. Cloner le projet
+
+```bash
 git clone https://github.com/2021413/OnlyWeed.git
 cd OnlyWeed
-2. Configuration du Backend
+```
+
+### 2. Configuration du Backend
 Assurez-vous d’avoir PHP 8+, Apache/Nginx et MySQL/MariaDB installés.
 
 Importez le fichier schema.sql situé dans database/ dans votre base de données.
 
-Configurez les paramètres dans backend/src/config/env.php :
+### Configurez les paramètres dans backend/src/config/env.php :
 
-php
-Copier
-Modifier
+```bash
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'onlyweed');
 define('DB_USER', 'root');
 define('DB_PASS', 'secret');
 define('JWT_SECRET', 'votre_cle_secrete_jwt');
-Lancez le serveur :
+```
 
-sh
-Copier
-Modifier
-php -S localhost:8000 -t backend/public
-Vérifiez que mod_rewrite est activé sur Apache.
-
-3. Installation & Lancement du Frontend
-
-
-
-🧪 Scripts Utiles (Frontend)
-Commande	Description
+### 3. Lancement du Frontend
+```bash
 symfony server:start
+```
 puis aller a l'url indiqué par le serveur
-🧱 Base de Données - Tables Principales
-Table	Description
-users	Stocke les utilisateurs (email, mot de passe)
-🔒 Prérequis
+
+
+### 🔒 Prérequis
 PHP ≥ 8.0
 
 MySQL / MariaDB
