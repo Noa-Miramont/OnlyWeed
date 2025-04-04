@@ -24,7 +24,6 @@
             display: flex;
             flex: row;
             justify-content: center;
-            align-item: center;
             width: 100vw;
         }
 
@@ -84,6 +83,7 @@
             justify-content: center;
             align-items: center;
             padding: 50px;
+            gap: 30px
         }
 
         input {
@@ -121,6 +121,14 @@
         .Policy {
             width: 50%;
             text-align: center;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
         }
 
         .btn-custom {
@@ -179,18 +187,29 @@
                             required
                         />
                     </li>
+                    <li>
+                        <input 
+                            type="password" 
+                            name="confirm_password" 
+                            id="password" 
+                            placeholder="Confirm Password"
+                            required
+                        />
+                    </li>
 
                     <input class="Submit-Button" type="submit" value="Sign in" />
                 </ul>
             </form>
             <p class="Policy">By logging in and using OnlyWeed, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
             
-            <button class="btn-custom btn-blue">Dickhead digital print</button>
-            <button class="btn-custom btn-red">Red eye check test</button>
-            <button class="btn-custom btn-brown">RAW test</button>
+            <div class="buttons">
+                <button class="btn-custom btn-blue">Dickhead digital print</button>
+                <button class="btn-custom btn-red">Red eye check test</button>
+                <button class="btn-custom btn-brown">RAW test</button>
+            </div>
 
             <div class="text-center">
-                <p>You don't have an acount ? <a href="{{ path('app_login') }}">Se connecter</a></p>
+                <p>You already have an acount ? <a href="{{ path('app_login') }}">log in</a></p>
             </div>
         </div>
     </div>
