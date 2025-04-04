@@ -1,20 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RegistrationController!{% endblock %}
+{% block title %}Inscription | OnlyWeed{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .register-container {
+            max-width: 420px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 12px;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(34, 139, 34, 0.2);
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-<div class="example-wrapper">
-    <h1>Hello! ✅</h1>
+        .register-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2e7d32;
+        }
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/iferh/OneDrive/Bureau/PHP-MYM/Only-weed/OnlyWeed/src/Controller/RegistrationController.php</code></li>
-        <li>Your template at <code>C:/Users/iferh/OneDrive/Bureau/PHP-MYM/Only-weed/OnlyWeed/templates/registration/index.html.twig</code></li>
-    </ul>
-</div>
+        .form-label {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #2e7d32;
+            border-radius: 6px;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 12px;
+            background-color: #2e7d32;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-register:hover {
+            background-color: #1b5e20;
+        }
+    </style>
+
+    <div class="register-container">
+        <h2>Créer un compte</h2>
+
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(registrationForm.plainPassword, {
+                'label': 'Mot de passe',
+                'attr': {'class': 'form-control'}
+            }) }}
+            <button type="submit" class="btn-register">S'inscrire</button>
+        {{ form_end(registrationForm) }}
+    </div>
 {% endblock %}

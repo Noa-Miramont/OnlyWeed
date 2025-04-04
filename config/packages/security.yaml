@@ -1,32 +1,41 @@
 security:
     password_hashers:
-        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+        App\Entity\User:
+            algorithm: auto
 
     providers:
         app_user_provider:
             entity:
                 class: App\Entity\User
-                property: email  # Utilisation de l'email comme identifiant
-        # used to reload user from session & other features (e.g. switch_user)
+                property: email
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        # Ici commence la configuration du firewall "main"
         main:
             lazy: true
             provider: app_user_provider
-            form_login:
-                login_path: login
-                check_path: login
+            custom_authenticator: App\Security\LoginAuthenticator
             logout:
-                path: logout
-                target: /
+                path: app_logout
+
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800
+                path: /
+                remember_me_parameter: _remember_me
+
+            # Définit un point d'entrée pour les utilisateurs non authentifiés
+            entry_point: App\Security\LoginAuthenticator
 
     access_control:
-        - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/profil, roles: ROLE_USER }
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/register, roles: PUBLIC_ACCESS }
+        - { path: ^/, roles: ROLE_USER }
+
 
 when@test:
     security:
