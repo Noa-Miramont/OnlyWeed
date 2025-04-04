@@ -167,31 +167,19 @@
         
         <div class="right-section">
             <h2>Log-In</h2>
-            <form>
+            {{ form_start(form) }}
                 <ul>
                     <li>
-                        <input 
-                            type="email" 
-                            name="email" 
-                            id="email" 
-                            placeholder="Email"
-                            required
-                        />
+                        {{ form_row(form.email) }}
                     </li>
 
                     <li>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            id="password" 
-                            placeholder="Password"
-                            required
-                        />
+                        {{ form_row(form.password) }}
                     </li>
 
                     <input class="Submit-Button" type="submit" value="Sign in" />
                 </ul>
-            </form>
+            {{ form_end(form) }}
             <p class="Policy">By logging in and using OnlyWeed, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
             
             <div class="buttons">

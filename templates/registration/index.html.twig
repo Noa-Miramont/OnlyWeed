@@ -4,7 +4,7 @@
 
 {% block body %}
     <style>
-
+      
         @font-face {
         font-family: 'passion one';
         src: url('../static/fonts/PassionOne.ttf') format('truetype');
@@ -23,8 +23,7 @@
         .Main {
             display: flex;
             flex: row;
-            justify-content: center;
-            width: 100vw;
+            justify-content: cen            width: 100vw;
         }
 
         .left-section {
@@ -209,9 +208,11 @@
             </div>
 
             <div class="text-center">
-                <p>You already have an acount ? <a href="{{ path('app_login') }}">log in</a></p>
+                <p>
+                    You already have an acount ? <a href="{{ path('app_login') }}">log in</a>
+                </p>
             </div>
         </div>
     </div>
 
-{% endblock %}
+    {% endblock %}

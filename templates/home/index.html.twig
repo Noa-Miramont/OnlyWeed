@@ -1,0 +1,75 @@
+{# templates/home/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil | OnlyWeed{% endblock %}
+
+{% block body %}
+    <div class="home-container">
+        <div class="header">
+            <h1>Bienvenue sur OnlyWeed</h1>
+            <p>Votre plateforme favorite pour explorer, partager et s'abonner à des contenus exclusifs !</p>
+        </div>
+
+        <div class="featured-content">
+            <h2>Contenu à la une</h2>
+            <div class="content-grid">
+                <div class="content-item">
+                    <img src="path_to_image.jpg" alt="Image content">
+                    <h3>Titre du contenu</h3>
+                </div>
+                <div class="content-item">
+                    <img src="path_to_image.jpg" alt="Image content">
+                    <h3>Titre du contenu</h3>
+                </div>
+                <div class="content-item">
+                    <img src="path_to_image.jpg" alt="Image content">
+                    <h3>Titre du contenu</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 OnlyWeed - Tous droits réservés.</p>
+        </div>
+    </div>
+
+    <style>
+        .home-container {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            color: #4CAF50;
+        }
+        .featured-content {
+            margin-bottom: 40px;
+        }
+        .featured-content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2e7d32;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .content-item {
+            text-align: center;
+        }
+        .content-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+{% endblock %}

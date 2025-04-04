@@ -31,6 +31,10 @@ class SecurityController extends AbstractController
         if ($loginForm->isSubmitted() && $loginForm->isValid()) {
             // Le processus de connexion est généralement géré automatiquement par Symfony
         }
+        // Si l'utilisateur est déjà authentifié, redirige-le vers la home page
+        if ($this->getUser()) {
+            return $this->redirectToRoute('home_page'); // Change 'home_page' par la route de ta page d'accueil
+        }
 
         // Passer le formulaire, les erreurs et le dernier nom d'utilisateur à la vue
         return $this->render('security/login.html.twig', [
