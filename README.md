@@ -1,5 +1,6 @@
 🌿 OnlyWeed - Marketplace Sécurisée pour Produits Artistique
 
+<<<<<<< HEAD
 ## 🛠 Technologies
 
 ### Frontend
@@ -13,6 +14,16 @@ Apache
 
 ## 📁 Structure du Projet
 ```bash
+=======
+🛠 Technologies
+Frontend
+twig
+
+Backend
+PHP 8+ Symfony MySQL Apache
+
+📁 Structure du Projet
+>>>>>>> dev
 ├── assets/                       # Fichiers front-end (CSS, JS, images)
 ├── bin/                          # Scripts exécutables Symfony
 ├── config/                       # Configuration de l’application
@@ -39,6 +50,7 @@ Apache
 │
 └── README.md                     # Documentation du projet
 └── symfony.lock
+<<<<<<< HEAD
 ```
 
 ## ⚙️ Installation
@@ -50,18 +62,30 @@ cd OnlyWeed
 ```
 
 ### 2. Configuration du Backend
+=======
+⚙️ Installation
+1. Cloner le projet
+git clone https://github.com/2021413/OnlyWeed.git
+cd OnlyWeed
+2. Configuration du Backend
+>>>>>>> dev
 Assurez-vous d’avoir PHP 8+, Apache/Nginx et MySQL/MariaDB installés.
 
 Importez le fichier schema.sql situé dans database/ dans votre base de données.
 
+<<<<<<< HEAD
 ### Configurez les paramètres dans backend/src/config/env.php :
 
 ```bash
+=======
+Configurez les paramètres dans backend/src/config/env.php :
+>>>>>>> dev
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'onlyweed');
 define('DB_USER', 'root');
 define('DB_PASS', 'secret');
 define('JWT_SECRET', 'votre_cle_secrete_jwt');
+<<<<<<< HEAD
 ```
 
 ### 3. Lancement du Frontend
@@ -72,6 +96,13 @@ puis aller a l'url indiqué par le serveur
 
 
 ### 🔒 Prérequis
+=======
+3. Lancement du Frontend
+symfony server:start
+puis aller a l'url indiqué par le serveur
+
+🔒 Prérequis
+>>>>>>> dev
 PHP ≥ 8.0
 
 MySQL / MariaDB
@@ -80,4 +111,8 @@ Apache ou Nginx (avec mod_rewrite activé)
 
 Node.js ≥ 16
 
+<<<<<<< HEAD
 npm ≥ 8
+=======
+npm ≥ 8
+>>>>>>> dev

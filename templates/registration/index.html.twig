@@ -1,0 +1,218 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription | OnlyWeed{% endblock %}
+
+{% block body %}
+    <style>
+      
+        @font-face {
+        font-family: 'passion one';
+        src: url('../static/fonts/PassionOne.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+}
+
+        body {
+            display: flex;
+            height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .Main {
+            display: flex;
+            flex: row;
+            justify-content: cen            width: 100vw;
+        }
+
+        .left-section {
+            background-image: url({{ asset('static/Background/Weed_pattern.png') }});
+            background-color: #319163;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 50px;
+            width: 50vw;
+        }
+
+        .logo_part {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            width: 75px;
+            height: 75px;
+        }
+
+        .Title {
+            font-size: 50px;
+            font-family: 'passion one';
+        }
+
+        span {
+            opacity: 60%;
+        }
+
+        .Cloud {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+        }
+
+        img {
+            margin: 0;
+        }
+
+        .left-section img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .right-section {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            gap: 30px
+        }
+
+        input {
+            width: 300px;
+            height: 50px;
+            background-color: transparent;
+            border: solid;
+            border-color: #606060;
+            padding-left: 15px
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        li {
+            padding-bottom: 15px;
+        }
+
+        .Submit-Button {
+            width: 300px;
+            height: 60px;
+            background-color: #319163;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .right-section h2 {
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .Policy {
+            width: 50%;
+            text-align: center;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .btn-custom {
+            width: 50%;
+            padding: 20px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .btn-blue { background-color: #0095ff; }
+        .btn-red { background-color: #ff3b3b; }
+        .btn-brown { background-color: #8b5a2b; }
+
+        .btn-custom:hover {
+            opacity: 0.8;
+        }
+    </style>
+
+    <div class="Main">
+
+        <div class="left-section">
+            <div class="logo_part">
+                <img class="logo" src="{{ asset('static/Logo/Logo.png') }}">
+                <h1 class="Title"><span class="Only">Only</span>Weeds</h1>
+            </div>
+
+            <div class="cloud-part">
+                <p>Log in to start your Bud-Tastick shop.</p>
+            </div>
+        </div>
+        
+        <div class="right-section">
+            <h2>Log-In</h2>
+            <form>
+                <ul>
+                    <li>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            placeholder="Email"
+                            required
+                        />
+                    </li>
+
+                    <li>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            placeholder="Password"
+                            required
+                        />
+                    </li>
+                    <li>
+                        <input 
+                            type="password" 
+                            name="confirm_password" 
+                            id="password" 
+                            placeholder="Confirm Password"
+                            required
+                        />
+                    </li>
+
+                    <input class="Submit-Button" type="submit" value="Sign in" />
+                </ul>
+            </form>
+            <p class="Policy">By logging in and using OnlyWeed, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+            
+            <div class="buttons">
+                <button class="btn-custom btn-blue">Dickhead digital print</button>
+                <button class="btn-custom btn-red">Red eye check test</button>
+                <button class="btn-custom btn-brown">RAW test</button>
+            </div>
+
+            <div class="text-center">
+                <p>
+                    You already have an acount ? <a href="{{ path('app_login') }}">log in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
