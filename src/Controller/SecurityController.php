@@ -2,31 +2,47 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\LoginFormType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
-    #[Route(path: '/login', name: 'app_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    #[Route('/login', name: 'app_login')]
+    public function login(Request $request, AuthenticationUtils $authenticationUtils): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
-
-        // get the login error if there is one
+        // Récupère les erreurs de login s'il y en a
         $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        // Créer le formulaire de connexion
+        $loginForm = $this->createForm(LoginFormType::class, null, [
+            'action' => $this->generateUrl('app_login'), // URL de soumission du formulaire
+            'method' => 'POST',
+        ]);
+
+        // Soumettre le formulaire si une requête POST est effectuée
+        $loginForm->handleRequest($request);
+
+        // Si le formulaire est soumis et valide
+        if ($loginForm->isSubmitted() && $loginForm->isValid()) {
+            // Le processus de connexion est généralement géré automatiquement par Symfony
+        }
+
+        // Passer le formulaire, les erreurs et le dernier nom d'utilisateur à la vue
+        return $this->render('security/login.html.twig', [
+            'form' => $loginForm->createView(),  // Passer le formulaire dans la vue
+            'error' => $error,                   // Passer l'erreur de connexion
+            'last_username' => $lastUsername,    // Passer le dernier nom d'utilisateur
+        ]);
     }
 
-    #[Route(path: '/logout', name: 'app_logout')]
+    #[Route('/logout', name: 'app_logout')]
     public function logout(): void
     {
-        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        // Symfony gère automatiquement la déconnexion
     }
 }

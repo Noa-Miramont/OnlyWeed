@@ -47,6 +47,21 @@
         .btn-register:hover {
             background-color: #1b5e20;
         }
+
+        .text-center {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .text-center a {
+            color: #2e7d32;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .text-center a:hover {
+            text-decoration: underline;
+        }
     </style>
 
     <div class="register-container">
@@ -60,5 +75,9 @@
             }) }}
             <button type="submit" class="btn-register">S'inscrire</button>
         {{ form_end(registrationForm) }}
+
+        <div class="text-center">
+            <p>Déjà un compte ? <a href="{{ path('app_login') }}">Se connecter</a></p>
+        </div>
     </div>
 {% endblock %}

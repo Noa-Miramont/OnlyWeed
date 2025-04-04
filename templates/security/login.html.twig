@@ -4,26 +4,32 @@
 
 {% block body %}
     <style>
+        /* Style pour la page de connexion */
         .login-container {
-            max-width: 400px;
-            margin: 80px auto;
+            max-width: 420px;
+            margin: 50px auto;
             padding: 30px;
             border-radius: 12px;
             background: #ffffff;
-            box-shadow: 0 0 15px rgba(46, 125, 50, 0.25);
+            box-shadow: 0 0 20px rgba(34, 139, 34, 0.2);
             font-family: 'Segoe UI', sans-serif;
         }
 
         .login-container h2 {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             color: #2e7d32;
+        }
+
+        .form-label {
+            color: #2e7d32;
+            font-weight: bold;
         }
 
         .form-control {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border: 2px solid #2e7d32;
             border-radius: 6px;
         }
@@ -42,25 +48,25 @@
         .btn-login:hover {
             background-color: #1b5e20;
         }
-
-        .error {
-            color: red;
-            text-align: center;
-            margin-bottom: 15px;
-        }
     </style>
 
     <div class="login-container">
-        <h2>Connexion</h2>
+        <h2>Se connecter</h2>
 
+        {{ form_start(form) }}
+            {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.password, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.remember_me, {'attr': {'class': 'form-check-input'}}) }}
+            <button type="submit" class="btn-login">Se connecter</button>
+        {{ form_end(form) }}
+
+        {# Afficher un message d'erreur si nécessaire #}
         {% if error %}
-            <div class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            <div class="alert alert-danger mt-3">
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
         {% endif %}
 
-        <form method="post">
-            <input type="email" name="email" value="{{ last_username }}" required autofocus placeholder="Email" class="form-control" />
-            <input type="password" name="password" required placeholder="Mot de passe" class="form-control" />
-            <button class="btn-login" type="submit">Se connecter</button>
-        </form>
+        <p>Pas encore inscrit ? <a href="{{ path('app_register') }}">Créer un compte</a></p>
     </div>
 {% endblock %}
